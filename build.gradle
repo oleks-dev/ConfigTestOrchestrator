@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.configtestorchestrator'
+version = '0.1.0'
+
+repositories {
+    mavenCentral()
+}
+
+tasks.register('runGroupedTests', JavaExec) {
+    group = 'verification'
+    description = 'Runs the custom GroupedTestExecutor runner'
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass.set('org.configtestorchestrator.examples.GroupedTestExecutor')
+    args = project.hasProperty('execArgs')
+            ? project.execArgs.split("\\s+")
+            : ['org.configtestorchestrator.examples', 'default.properties', '--verbose', '--max-parallel 2']
+}
+
+dependencies {
+    testImplementation 'org.testng:testng:7.9.0'
+}
+
+test {
+    useTestNG()
+}
+
