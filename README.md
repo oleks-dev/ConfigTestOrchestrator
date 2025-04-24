@@ -104,6 +104,8 @@ ConfigTestOrchestrator/
 ## 📌 Status
 
 ✅ Ready for integration in real-world CI pipelines
+
 🧠 Built for workflow-heavy systems with config-sensitive behavior
+
 🔌 Open for contribution and extensibility
 
